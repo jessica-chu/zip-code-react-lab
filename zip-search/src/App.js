@@ -7,7 +7,10 @@ function City(props) {
 }
 
 function ZipSearchField(props) {
-  return (<div>This is the ZipSearchField component</div>);
+  return (<div>
+    <strong>Zip Code:</strong>
+    <input type="text" className="input" placeholder="Try 10016" />
+  </div>);
 }
 
 
