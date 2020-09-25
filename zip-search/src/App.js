@@ -15,13 +15,38 @@ function ZipSearchField(props) {
 
 
 class App extends Component {
+  // Store value that is provided by the user
+  state = {
+    userInputValue: "",
+    state: [],
+    location: [],
+    estimatePop: [],
+    totalWages: []
+  }
+
+  handleZipChange(event) {
+    console.log(event.target.value);
+    fetch('http://ctp-zip-api.herokuapp.com/zip/:Zipcode')
+      .then(response => response.json())
+      .then(json => {
+        this.setState({
+          state: json.State,
+          location: json.Location,
+          estimatedPop: json.EstimatedPopulation,
+          totalWages: json.TotalWages
+        })
+      })
+  }
+
+  // Create an array of <City /> elements
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <h2>Zip Code Search</h2>
         </div>
-        <ZipSearchField />
+        <ZipSearchField zipChanged={ (e) => this.handleZipChange(e) } />
         <div>
           <City />
           <City />
