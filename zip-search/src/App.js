@@ -3,10 +3,12 @@ import './App.css';
 
 
 function City(props) {
+  var lowerCaseName = (props.city).toLowerCase();
+
   return (
-    <div className="card w-50">
+    <div className="card w-50 center my-3">
       <div className="card-header">
-        {props.city}, {props.state}
+        <span className="text-capitalize">{lowerCaseName}</span>, {props.state}
       </div>
       <div className="card-body">
         <ul>
@@ -21,10 +23,10 @@ function City(props) {
 
 function ZipSearchField(props) {
   return (
-    <div>
+    <div className="text-center mt-4">
       <strong>Zip Code:</strong>
       <input type="text" onChange={ props.zipChanged } value={ props.zipValue } placeholder="Try 10016" />
-  <p>You entered: { props.zipValue }</p>
+      {/* <p>You entered: { props.zipValue }</p> */}
     </div>);
 }
 
@@ -37,7 +39,7 @@ class App extends Component {
   }
 
   handleZipChange(event) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.setState({
       userInputValue: event.target.value
     })
@@ -47,6 +49,11 @@ class App extends Component {
         console.log(json);
         this.setState({
           cities: json
+        })
+      })
+      .catch(error => {console.log(error)
+        this.setState({
+          cities: []
         })
       })
   }

@@ -4,3 +4,9 @@
   color: white;
   text-align: center;
 }
+
+.center{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
