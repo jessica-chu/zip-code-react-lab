@@ -78,8 +78,7 @@ class App extends Component {
         </div>
         <ZipSearchField zipChanged={ (e) => this.handleZipChange(e) } zipValue={ this.state.userInputValue } />
         <div>
-          <City />
-          <City />
+          {cityArray}
         </div>
       </div>
     );
