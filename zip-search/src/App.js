@@ -43,7 +43,12 @@ class App extends Component {
     this.setState({
       userInputValue: event.target.value
     })
-    fetch('http://ctp-zip-api.herokuapp.com/zip/' + event.target.value)
+
+    if (event.target.value.length !== 5) {
+      return;
+    }
+    else {
+      fetch('http://ctp-zip-api.herokuapp.com/zip/' + event.target.value)
       .then(response => response.json())
       .then(json => {
         console.log(json);
@@ -56,6 +61,8 @@ class App extends Component {
           cities: []
         })
       })
+    }
+    
   }
 
   render() {
