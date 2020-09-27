@@ -1,0 +1,12 @@
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.center{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
