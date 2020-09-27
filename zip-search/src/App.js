@@ -3,12 +3,10 @@ import './App.css';
 
 
 function City(props) {
-  var lowerCaseName = (props.city).toLowerCase();
-
   return (
     <div className="card w-50 center my-3">
       <div className="card-header">
-        <span className="text-capitalize">{lowerCaseName}</span>, {props.state}
+        {props.locationText}
       </div>
       <div className="card-body">
         <ul>
@@ -76,7 +74,7 @@ class App extends Component {
       cityArray.push (
         <City
           key = {i}
-          city = {isCity['City']}
+          locationText = {isCity['LocationText']}
           state = {isCity['State']}
           location = {isCity['Lat'] + ", " + isCity['Long']}
           estimatedPop = {isCity['EstimatedPopulation']}
